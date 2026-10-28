@@ -1,5 +1,9 @@
 # CameraFloat · 摄像头悬浮窗
 
+[![Release](https://img.shields.io/github/v/release/Zzy010601/CameraFloat?color=blue)](https://github.com/Zzy010601/CameraFloat/releases/latest)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-lightgrey.svg)](#环境要求)
+
 一个常驻桌面的摄像头悬浮窗工具：无边框圆角小窗，可以任意缩放、画布式拖动取景、左右镜像，随时开关摄像头。提供两个版本：
 
 - **macOS 原生版**：Swift + Cocoa + AVFoundation，零依赖，编译产物不到 200 KB
@@ -10,6 +14,20 @@
 <p align="center">
   <img src="docs/preview.svg" alt="CameraFloat 界面结构与四种贴合方式" width="100%">
 </p>
+
+## 直接下载
+
+不想自己编译的话，去 [Releases](https://github.com/Zzy010601/CameraFloat/releases/latest) 下现成的包：
+
+| 平台 | 文件 | 说明 |
+|---|---|---|
+| macOS | `CameraFloat-macOS.zip` | 解压后拖进「应用程序」。未公证，首次打开需右键 → 打开 |
+| Windows | 暂无预编译包 | 用仓库里 `windows\run.bat` 一键运行，或 `build.bat` 自己打包 |
+
+```bash
+# 如果 macOS 提示「无法验证开发者」
+xattr -dr com.apple.quarantine /Applications/CameraFloat.app
+```
 
 ## 功能
 
@@ -49,7 +67,7 @@ xcode-select --install
 ### macOS
 
 ```bash
-git clone https://github.com/<your-name>/CameraFloat.git
+git clone https://github.com/Zzy010601/CameraFloat.git
 cd CameraFloat
 ./build.sh
 open CameraFloat.app
@@ -68,7 +86,7 @@ cp -R CameraFloat.app /Applications/
 ### Windows
 
 ```bat
-git clone https://github.com/<your-name>/CameraFloat.git
+git clone https://github.com/Zzy010601/CameraFloat.git
 cd CameraFloat\windows
 run.bat
 ```
