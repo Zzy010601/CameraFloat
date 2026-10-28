@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 820" width="1240" height="820" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#12151c"/>
+      <stop offset="1" stop-color="#0a0c11"/>
+    </linearGradient>
+    <linearGradient id="scene" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b3a52"/>
+      <stop offset="0.55" stop-color="#1d2a3c"/>
+      <stop offset="1" stop-color="#141c28"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.44"/>
+    </linearGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+    <clipPath id="winClip"><rect x="70" y="120" width="560" height="315" rx="24"/></clipPath>
+    <clipPath id="winClip2"><rect x="70" y="120" width="330" height="315" rx="24"/></clipPath>
+  </defs>
+
+  <rect width="1240" height="820" fill="url(#bg)"/>
+
+  <text x="70" y="64" fill="#eef2f8" font-size="30" font-weight="600">CameraFloat 界面结构</text>
+  <text x="70" y="96" fill="#7d8798" font-size="15">无边框圆角窗口 · 画布式取景 · 悬浮控制条（示意图，非真实摄像头画面）</text>
+
+  <!-- ============ 主窗口：右固定裁切 ============ -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="120" width="560" height="315" rx="24" fill="#0b0e13"/>
+  </g>
+  <g clip-path="url(#winClip)">
+    <rect x="70" y="120" width="560" height="315" fill="url(#scene)"/>
+    <!-- 抽象画面内容 -->
+    <circle cx="430" cy="250" r="120" fill="#3f5673" opacity="0.55"/>
+    <circle cx="540" cy="360" r="150" fill="#2a3d57" opacity="0.7"/>
+    <circle cx="300" cy="400" r="90" fill="#31445f" opacity="0.5"/>
+    <rect x="70" y="120" width="560" height="315" fill="#0a0f16" opacity="0.15"/>
+  </g>
+  <!-- 裁切掉的左侧区域：虚线遮罩 -->
+  <g clip-path="url(#winClip)">
+    <rect x="70" y="120" width="230" height="315" fill="#05070a" opacity="0.74"/>
+  </g>
+  <g>
+    <line x1="300" y1="120" x2="300" y2="435" stroke="#5fa8ff" stroke-width="2" stroke-dasharray="7 7"/>
+    <text x="182" y="285" fill="#5fa8ff" font-size="14" text-anchor="middle" opacity="0.95">裁切区</text>
+    <text x="182" y="308" fill="#7d8798" font-size="12" text-anchor="middle">窗口变窄时消失</text>
+  </g>
+  <!-- 底部控制条 -->
+  <g>
+    <rect x="292" y="376" width="116" height="30" rx="11" fill="url(#bar)" stroke="#ffffff" stroke-opacity="0.16"/>
+    <g fill="#e8eef8">
+      <rect x="301" y="383" width="20" height="16" rx="4" fill="#e8eef8" opacity="0.9"/>
+      <text x="311" y="395" font-size="9" fill="#1a2434" text-anchor="middle" font-weight="700">▮</text>
+      <rect x="328" y="383" width="20" height="16" rx="4" fill="none" stroke="#e8eef8" stroke-opacity="0.55"/>
+      <rect x="355" y="383" width="20" height="16" rx="4" fill="none" stroke="#e8eef8" stroke-opacity="0.55"/>
+      <rect x="382" y="383" width="20" height="16" rx="4" fill="none" stroke="#e8eef8" stroke-opacity="0.55"/>
+    </g>
+  </g>
+  <!-- 中央拖动模式按钮 -->
+  <circle cx="350" cy="277" r="19" fill="#0d1118" fill-opacity="0.55" stroke="#ffffff" stroke-opacity="0.28"/>
+  <path d="M350 268v18M341 277h18" stroke="#e8eef8" stroke-width="2" stroke-linecap="round" stroke-opacity="0.85"/>
+
+  <!-- 标注 -->
+  <g font-size="14" fill="#9aa6b8">
+    <line x1="640" y1="150" x2="700" y2="150" stroke="#41506a" stroke-width="1"/>
+    <text x="710" y="155" fill="#dce4f0" font-size="15" font-weight="600">无边框圆角窗口</text>
+    <text x="710" y="177">拖动边缘 14pt 热区缩放，最小 90×90</text>
+
+    <line x1="640" y1="228" x2="700" y2="228" stroke="#41506a" stroke-width="1"/>
+    <text x="710" y="233" fill="#dce4f0" font-size="15" font-weight="600">右固定裁切</text>
+    <text x="710" y="255">窗口压窄只裁左边，右侧视角不动</text>
+
+    <line x1="369" y1="277" x2="700" y2="305" stroke="#41506a" stroke-width="1"/>
+    <text x="710" y="310" fill="#dce4f0" font-size="15" font-weight="600">拖动模式按钮（画面中央）</text>
+    <text x="710" y="332">手掌＝平移取景　蓝色箭头＝移动窗口</text>
+
+    <line x1="408" y1="391" x2="700" y2="392" stroke="#41506a" stroke-width="1"/>
+    <text x="710" y="397" fill="#dce4f0" font-size="15" font-weight="600">悬浮控制条（悬停浮出）</text>
+    <text x="710" y="419">开摄像头 / 置顶 / 关闭，1.6 秒后自动淡出</text>
+  </g>
+
+  <!-- ============ 贴合方式对比 ============ -->
+  <text x="70" y="530" fill="#eef2f8" font-size="20" font-weight="600">四种缩放贴合方式</text>
+  <text x="70" y="556" fill="#7d8798" font-size="13">窗口与画面比例不一致时的处理策略，可在「配置 → 缩放贴合方式」切换</text>
+
+  <!-- 右固定 -->
+  <g transform="translate(70, 585)">
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="#0b0e13" stroke="#232c3a"/>
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="url(#scene)"/>
+    <rect x="0" y="0" width="95" height="150" fill="#05070a" opacity="0.78"/>
+    <line x1="95" y1="0" x2="95" y2="150" stroke="#5fa8ff" stroke-width="1.5" stroke-dasharray="5 5"/>
+    <text x="125" y="172" fill="#dce4f0" font-size="14" font-weight="600">右固定（裁左边）</text>
+    <text x="125" y="192" fill="#6f7b8d" font-size="12">默认方式</text>
+  </g>
+
+  <!-- 左固定 -->
+  <g transform="translate(345, 585)">
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="#0b0e13" stroke="#232c3a"/>
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="url(#scene)"/>
+    <rect x="155" y="0" width="95" height="150" fill="#05070a" opacity="0.78"/>
+    <line x1="155" y1="0" x2="155" y2="150" stroke="#5fa8ff" stroke-width="1.5" stroke-dasharray="5 5"/>
+    <text x="125" y="172" fill="#dce4f0" font-size="14" font-weight="600">左固定（裁右边）</text>
+    <text x="125" y="192" fill="#6f7b8d" font-size="12">左侧视角钉住</text>
+  </g>
+
+  <!-- 居中裁切 -->
+  <g transform="translate(620, 585)">
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="#0b0e13" stroke="#232c3a"/>
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="url(#scene)"/>
+    <rect x="0" y="0" width="48" height="150" fill="#05070a" opacity="0.78"/>
+    <rect x="202" y="0" width="48" height="150" fill="#05070a" opacity="0.78"/>
+    <text x="125" y="172" fill="#dce4f0" font-size="14" font-weight="600">居中裁切</text>
+    <text x="125" y="192" fill="#6f7b8d" font-size="12">两边都裁</text>
+  </g>
+
+  <!-- 自适应 -->
+  <g transform="translate(895, 585)">
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="#0b0e13" stroke="#232c3a"/>
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="#05070a"/>
+    <rect x="0" y="33" width="250" height="84" fill="url(#scene)"/>
+    <text x="125" y="172" fill="#dce4f0" font-size="14" font-weight="600">自适应（完整显示）</text>
+    <text x="125" y="192" fill="#6f7b8d" font-size="12">画面完整，多余部分留黑边</text>
+  </g>
+
+</svg>

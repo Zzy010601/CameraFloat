@@ -1,0 +1,17 @@
+.DS_Store
+*.swp
+
+# 构建产物
+*.app/
+build/
+dist/
+*.spec
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# 本地发布脚本
+publish.sh
+.tmp/
